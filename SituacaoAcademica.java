@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /*
 * Nome.......: SituacaoAcademica
-* Objetivo...: Representa as possíveis situações acadêmicas em que um estudante pode estar
+* Objetivo...: Representa as possÃ­veis situaÃ§Ãµes acadÃªmicas em que um estudante pode estar
 * Observacoes: Se for desconhecido, utilize o tipo 0 - DS - Desconhecido.
 */
 public class SituacaoAcademica {
@@ -74,16 +74,5 @@ public class SituacaoAcademica {
     public int size() {
         return(this.situacaoAcademica.size());
     }
-      
-    public void show(int index) {
-        System.out.println();
-        System.out.println("------------------");
-        System.out.println("Situação Academica");
-        System.out.println("------------------");
-        System.out.println("Código..........: " + this.getSituacaoAcademica(index).getCodigo());
-        System.out.println("Descr. Abreviada: " + this.getSituacaoAcademica(index).getDescricaoAbreviada());
-        System.out.println("Descr. Completa.: " + this.getSituacaoAcademica(index).getDescricaoCompleta());
-        System.out.println("------------------");
-    }
-    
+
 }
