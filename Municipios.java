@@ -3,19 +3,19 @@ package sistemaAcademico;
 import java.util.ArrayList;
 
 /*
-* Nome.......: Municípios
-* Objetivo...: Representa os possíveis municípios a que um endereço
+* Nome.......: MunicÃ­pios
+* Objetivo...: Representa os possÃ­veis municÃ­pios a que um endereÃ§o
 *              pode referir-se
 * Observacoes: Se for desconhecido, utilize o tipo 00-00000 - DS - Desconhecido.
 */
 public class Municipios {
     ArrayList <ElementoDescritivo>  municipios;
     /**
-     * Implementar de maneira semelhante à UnidadesFederativas basta considerar três municípios na aplicação:
+     * Implementar de maneira semelhante Ã Â UnidadesFederativas basta considerar trÃªs municÃ­pios na aplicaÃ§Ã£o:
      * 
      *  00-00000 * Desconhecido
-        52-01405 * Aparecida de Goiânia
-        52-08707 * Goiânia
+        52-01405 * Aparecida de GoiÃ¢nia
+        52-08707 * GoiÃ¢nia
      */
     
     public Municipios() {
@@ -26,10 +26,10 @@ public class Municipios {
 		elementoDescritivo.setElementoDescritivo(0, "DS", "Desconhecido");
 		this.municipios.add(elementoDescritivo); 
 		elementoDescritivo  = new ElementoDescritivo();
-		elementoDescritivo.setElementoDescritivo(1, "APG", "Aparecida de Goiânia");
+		elementoDescritivo.setElementoDescritivo(1, "APG", "Aparecida de GoiÃ¢nia");
 		this.municipios.add(elementoDescritivo); 
 		elementoDescritivo  = new ElementoDescritivo();
-		elementoDescritivo.setElementoDescritivo(2, "GYN", "Goiânia");
+		elementoDescritivo.setElementoDescritivo(2, "GYN", "GoiÃ¢nia");
 		
 
 	}
@@ -59,16 +59,5 @@ public class Municipios {
 
 	public int size() {
 		return(this.municipios.size());
-	}
-
-	public void show(int index) {
-		System.out.println();
-		System.out.println("------------------");
-		System.out.println("Classes Telefones");
-		System.out.println("------------------");
-		System.out.println("Código..........: " + this.getMunicipios(index).getCodigo());
-		System.out.println("Descr. Abreviada: " + this.getMunicipios(index).getDescricaoAbreviada());
-		System.out.println("Descr. Completa.: " + this.getMunicipios(index).getDescricaoCompleta());
-		System.out.println("------------------");
 	}
 }
