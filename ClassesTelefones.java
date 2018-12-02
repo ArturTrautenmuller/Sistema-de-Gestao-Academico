@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /*
  * Nome.......: ClassesTelefones
- * Objetivo...: Representa as possíveis classes a que um telefone pode pertencer.
+ * Objetivo...: Representa as possÃ­veis classes a que um telefone pode pertencer.
  *              
  * Observacoes: Se for desconhecida, utilize o tipo 0 - DS - Desconhecida.
  */
@@ -59,17 +59,5 @@ public class ClassesTelefones {
 	public int size() {
 		return(this.classesTelefones.size());
 	}
-
-	public void show(int index) {
-		System.out.println();
-		System.out.println("------------------");
-		System.out.println("Classes Telefones");
-		System.out.println("------------------");
-		System.out.println("Código..........: " + this.getClassesTelefones(index).getCodigo());
-		System.out.println("Descr. Abreviada: " + this.getClassesTelefones(index).getDescricaoAbreviada());
-		System.out.println("Descr. Completa.: " + this.getClassesTelefones(index).getDescricaoCompleta());
-		System.out.println("------------------");
-	}
-
 
 }
