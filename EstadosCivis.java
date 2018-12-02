@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /*
 * Nome.......: EstadosCivis
-* Objetivo...: Representa os possÌveis estados civis que uma pessoa pode ter.
+* Objetivo...: Representa os poss√≠veis estados civis que uma pessoa pode ter.
 * Observacoes: Se for desconhecido, utilize o tipo 0 - DS - Desconhecido.
 */
 public class EstadosCivis {
@@ -30,10 +30,10 @@ public class EstadosCivis {
         elementoDescritivo.setElementoDescritivo(4, "??", "Divorciado");
         this.estadosCivis.add(elementoDescritivo); 
         elementoDescritivo  = new ElementoDescritivo();
-        elementoDescritivo.setElementoDescritivo(5, "??", "Vi˙vo");
+        elementoDescritivo.setElementoDescritivo(5, "??", "Vi√∫vo");
         this.estadosCivis.add(elementoDescritivo); 
         elementoDescritivo  = new ElementoDescritivo();
-        elementoDescritivo.setElementoDescritivo(6, "??", "Uni„o Est·vel");
+        elementoDescritivo.setElementoDescritivo(6, "??", "Uni√£o Est√°vel");
         this.estadosCivis.add(elementoDescritivo); 
         elementoDescritivo  = new ElementoDescritivo();
         elementoDescritivo.setElementoDescritivo(7, "??", "Outro");        
@@ -64,17 +64,5 @@ public class EstadosCivis {
 
     public int size() {
         return(this.estadosCivis.size());
-    }
-      
-    public void show(int index) {
-        System.out.println();
-        System.out.println("------------------");
-        System.out.println("Estado Civil");
-        System.out.println("------------------");
-        System.out.println("CÛdigo..........: " + this.getEstadosCivis(index).getCodigo());
-        System.out.println("Descr. Abreviada: " + this.getEstadosCivis(index).getDescricaoAbreviada());
-        System.out.println("Descr. Completa.: " + this.getEstadosCivis(index).getDescricaoCompleta());
-        System.out.println("------------------");
-    }
-    
+    }    
 }
