@@ -276,7 +276,8 @@ public class Academicos extends Pessoa {
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {	
+			public void actionPerformed(ActionEvent arg0) {
+				//Implementar a ação para salvar todas as informações inseridas pelo usuário
 			}			
 		});
 		btnCadastrar.setBounds(200, 340, 100, 23);
@@ -452,10 +453,21 @@ public class Academicos extends Pessoa {
 			contentPane.add(lblTelCel2);
 			
 			JButton btnAlterarDados = new JButton("Alterar dados");
+			btnCadastrar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					//Implementar a ação para abrir nova janela para alterar os dados do usuário
+					//Ou na mesma janela só permitir a alteração dos dados que estão sendo mostrados nos label
+					}			
+			});
 			btnAlterarDados.setBounds(80, 344, 150, 40);
 			contentPane.add(btnAlterarDados);
 			
 			JButton btnExcluirAcadmico = new JButton("Excluir Acadêmico");
+			btnCadastrar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					//Implementar a ação de excluir o acadêmico que está sendo consultado
+					}			
+			});
 			btnExcluirAcadmico.setBounds(280, 344, 150, 40);
 			contentPane.add(btnExcluirAcadmico);
 		}
