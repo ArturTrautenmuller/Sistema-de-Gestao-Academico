@@ -1,5 +1,7 @@
 import java.sql.*;
 import java.util.*;
+
+import javax.swing.JOptionPane;
 public class Dados {
 
 	public static void cadastrar(Academicos aluno) {
@@ -23,7 +25,7 @@ public class Dados {
 		} 
 		
 		
-		catch(Exception e) {System.out.println(e.getMessage());}
+		catch(Exception e) {JOptionPane.showMessageDialog(null, e.getMessage());}
 		
 	}
 	
@@ -52,7 +54,7 @@ public class Dados {
 		} 
 		
 		
-		catch(Exception e) {System.out.println(e.getMessage());}
+		catch(Exception e) {JOptionPane.showMessageDialog(null, e.getMessage());}
 		return alunos;
 		
 		
@@ -78,7 +80,7 @@ public class Dados {
 		} 
 		
 		
-		catch(Exception e) {System.out.println(e.getMessage());}
+		catch(Exception e) {JOptionPane.showMessageDialog(null, e.getMessage());}
 		
 	}
 	
@@ -94,7 +96,7 @@ public class Dados {
 		} 
 		
 		
-		catch(Exception e) {System.out.println(e.getMessage());}
+		catch(Exception e) {JOptionPane.showMessageDialog(null, e.getMessage());}
 		
 	}
 }
