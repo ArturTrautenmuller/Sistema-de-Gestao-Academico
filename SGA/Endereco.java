@@ -2,7 +2,7 @@ package SGA;
 
 public class Endereco {
 	
-	private int tipoLogradouro; //Avenida, rua, praça, etc.
+	private int tipoLogradouro; //Avenida, rua, praÃ§a, etc.
 	private int codigoLogradouro; //CEP
 	private String descricaoLogradouro; //Nome da rua
 	private String complementoLogradouro; //Apt, quadra, lote
@@ -76,7 +76,7 @@ public class Endereco {
 	public String toString() {
 		return "Endereco:" + tipoLogradouro + "\n" + codigoLogradouro
 				+ " " + descricaoLogradouro + " " + complementoLogradouro
-				+ " Nº" + numero + "\nBairro:" + bairro + "\nMunicipio:"
+				+ " Nï¿½" + numero + "\nBairro:" + bairro + "\nMunicipio:"
 				+ municipio + "\nReferencia:" + referencia;
 	}	
 	

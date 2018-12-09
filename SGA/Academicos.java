@@ -1,8 +1,12 @@
 package SGA;
 
+import java.lang.Object;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -13,11 +17,14 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import com.sun.xml.internal.bind.v2.runtime.Name;
+
 import SGA.Documento;
 import SGA.Email;
 import SGA.Endereco;
 import SGA.Pessoa;
 import SGA.Telefone;
+import jdk.internal.dynalink.beans.StaticClass;
 
 public class Academicos extends Pessoa {
 		
@@ -40,6 +47,9 @@ public class Academicos extends Pessoa {
 		private JTextField textTelRes;
 		private JTextField textDDDCel;
 		private JTextField textTelCel;
+		private static int matn = 0;
+		private static int matsalva = 0;
+		private static ArrayList <Academicos> academicos = new ArrayList<Academicos>();
 		
 		public Academicos(String preNome, String sobrenome, String dataNascimento, String municipioNascimento,
 				String ufNascimento, String paisNascimento, String estadoCivil, Telefone telefone, Email eMail,
@@ -80,11 +90,42 @@ public class Academicos extends Pessoa {
 		}
 		@Override
 		public String toString(){
-			return super.toString()+"Matricula: "+getMatricula()+"\nSituação:"+getSituacaoAcademica()+ "Dados:"+getDocumento();
+			return super.toString()+"\nMatricula: "+getMatricula()+"\nSituação:"+getSituacaoAcademica()+ "\nDados:"+getDocumento();
 		}
-		
+		/*public ArrayList<Academicos> cadastrarAluno(){		//método padrão de cadastro -Luan
+			String text, sufixo;
+			setPreNome(textPreNome.getText());
+			setSobrenome(textSobrenome.getText());
+			setDataNascimento(textData.getText());
+			setMunicipioNascimento(textRua.getText());
+			setUfNascimento(textNum.getText());
+			setMunicipioNascimento(textCidadeNatal.getText());
+			setUfNascimento(boxUfNascimento.getSelectedItem().toString());
+			setEstadoCivil(boxEstadoCivil.getSelectedItem().toString());
+			Telefone telefone = new Telefone(0,textDDDRes.getText(), textTelRes.getText());
+			setTelefone(telefone);
+			text = textEmail.getText();
+			sufixo = "";
+			Email email = new Email(text, sufixo);
+			seteMail(email);
+			if (matsalva != 0) {				//trecho que reutiliza numero de matriculas removidas após a remoção de um usuário
+				setMatricula(Integer.toString(matsalva));
+				matsalva = 0;
+			}
+			else {
+			++matn;
+			setMatricula(Integer.toString(matn));
+			}
+			setSituacaoAcademica("Matriculado");
+			Documento doc = new Documento("0", getMatricula(), "", "SSP/UF", "Brasil");
+			setDocumento(doc);
+			Academicos salvar = new Academicos(getPreNome(), getSobrenome(), getDataNascimento(), getMunicipioNascimento(), getUfNascimento(), "Brasil", getEstadoCivil(), getTelefone(), getEmail(), getMatricula(), getSituacaoAcademica(), getDocumento());
+			academicos.add(salvar);
+			System.out.println(academicos);
+		}*/
 		//Construtor para criação da GUI de um novo usuário
 		public Academicos() {
+			
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 420);
 		contentPane = new JPanel();
@@ -277,12 +318,43 @@ public class Academicos extends Pessoa {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String text, sufixo;
+				setPreNome(textPreNome.getText());			//Colocando os dados no objeto salvar, este será adicionado na lista "academicos" -Luan
+				setSobrenome(textSobrenome.getText());
+				setDataNascimento(textData.getText());
+				setMunicipioNascimento(textRua.getText());
+				setUfNascimento(textNum.getText());
+				setMunicipioNascimento(textCidadeNatal.getText());
+				setUfNascimento(boxUfNascimento.getSelectedItem().toString());
+				setEstadoCivil(boxEstadoCivil.getSelectedItem().toString());
+				Telefone telefone = new Telefone(0,textDDDRes.getText(), textTelRes.getText());		//problemas no tipo do telefone, tipo está como 0 -Luan
+				setTelefone(telefone);
+				text = textEmail.getText();
+				sufixo = "";
+				Email email = new Email(text, sufixo);
+				seteMail(email);
+				if (matsalva != 0) {				//trecho que reutiliza numero de matriculas removidas após a remoção de um usuário -Luan
+					setMatricula(Integer.toString(matsalva));
+					matsalva = 0;
+				}
+				else {
+				++matn;
+				setMatricula(Integer.toString(matn));
+				}
+				setSituacaoAcademica("Matriculado");
+				Documento doc = new Documento("0", getMatricula(), "", "SSP/UF", "Brasil");	//problemas relacionados a documentos -Luan
+				setDocumento(doc);
+				Academicos salvar = new Academicos(getPreNome(), getSobrenome(), getDataNascimento(), getMunicipioNascimento(), getUfNascimento(), "Brasil", getEstadoCivil(), getTelefone(), getEmail(), getMatricula(), getSituacaoAcademica(), getDocumento());
+				academicos.add(salvar);
+				System.out.println(academicos);
 				//Implementar a ação para salvar todas as informações inseridas pelo usuário
 			}			
 		});
+		
 		btnCadastrar.setBounds(200, 340, 100, 23);
 		contentPane.add(btnCadastrar);
 		setVisible(true);
+		
 	}
 
 		//Construtor para consultar um acadêmico com opções de excluir ou alterar o cadastro
@@ -335,7 +407,7 @@ public class Academicos extends Pessoa {
 			JLabel lblNumero = new JLabel("Número:");
 			lblNumero.setFont(new Font("Tahoma", Font.PLAIN, 12));
 			lblNumero.setBounds(281, 130, 76, 14);
-			contentPane.add(lblNumero);
+			contentPane.add(lblNumero); 
 			
 			JLabel lblComplemento = new JLabel("Complemento:");
 			lblComplemento.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -452,9 +524,23 @@ public class Academicos extends Pessoa {
 			lblTelCel2.setBounds(394, 305, 90, 14);
 			contentPane.add(lblTelCel2);
 			
-			JButton btnAlterarDados = new JButton("Alterar dados");
+			JButton btnAlterarDados = new JButton("Alterar dados");			//falta implementar o botão eu acho	-Luan
 			btnCadastrar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
+					for(int i = 0; i< academicos.size(); i++) {
+						if(matricula.equals(academicos.get(i).getMatricula())) {
+							textPreNome.setText(academicos.get(i).getPreNome());
+							textSobrenome.setText(academicos.get(i).getSobrenome());
+							textCidadeNatal.setText(academicos.get(i).getMunicipioNascimento());
+							textData.setText(academicos.get(i).getDataNascimento());
+							academicos.get(i).getEmail();	//tem que ser acessado como método stático, mas como fazer isso com caixa de texto? - Luan
+							textNum.setText(academicos.get(i).getMatricula());
+							//textComplemento.setText(academicos.get(i));
+							//textCEP.getText(academicos.get(i))
+							academicos.get(i).getTelefone();
+							new Academicos();
+						}
+					}
 					//Implementar a ação para abrir nova janela para alterar os dados do usuário
 					//Ou na mesma janela só permitir a alteração dos dados que estão sendo mostrados nos label
 					}			
@@ -462,9 +548,16 @@ public class Academicos extends Pessoa {
 			btnAlterarDados.setBounds(80, 344, 150, 40);
 			contentPane.add(btnAlterarDados);
 			
-			JButton btnExcluirAcadmico = new JButton("Excluir Acadêmico");
+			JButton btnExcluirAcadmico = new JButton("Excluir Acadêmico");	//falta implementar o botão eu acho	-Luan
 			btnCadastrar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
+					for(int i = 0; i < academicos.size(); i++) {
+						if(matricula.equals(academicos.get(i).getMatricula())) {
+							academicos.remove(i);
+							matsalva = i;
+						}
+					}
+					
 					//Implementar a ação de excluir o acadêmico que está sendo consultado
 					}			
 			});

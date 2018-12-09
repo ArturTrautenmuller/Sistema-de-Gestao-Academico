@@ -2,7 +2,7 @@ package SGA;
 import java.util.ArrayList;
 
 public class SituacaoAcademica {
-    private ArrayList <ElementoDescritivo>  sa;// usa a ElementoDescritivo como padrão
+    private ArrayList <ElementoDescritivo>  sa;// usa a ElementoDescritivo como padrï¿½o
 
 
     public  SituacaoAcademica(){
@@ -62,7 +62,7 @@ public class SituacaoAcademica {
 
     @Override
     public String toString() {
-        return "SituacaoAcademica:" + sa;
+        return "SituacaoAcademica: " + sa;
     }
 
 }
