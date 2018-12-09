@@ -8,7 +8,6 @@ public class Dados {
 		Email email = aluno.geteMail();
 		Endereco endereco = aluno.getEndereco();
 		Telefone tel = aluno.getTelefone();
-		String numTel = ""+tel.getDdd()+""+tel.getNumero();
 		Documento doc = aluno.getDocumento();
 		
 		
@@ -18,8 +17,8 @@ public class Dados {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sga", "root", "");
 			Statement stmt = con.createStatement();
 			String sql = "insert into cadastro(Nome,Sobrenome,ddn,CidadeNascimento,UFNascimento,EstadoCivil,"
-					+ "Email,Rua,Numero,Complemento,Bairro,CEP,Cidade,TelefoneResidencial,SituacaoAcademica,Documento)"
-					+ "values ('"+aluno.getPreNome()+"','"+aluno.getNome()+"','"+aluno.getDataNascimento()+"','"+aluno.getMunicipioNascimento()+"','"+aluno.getUfNascimento()+"','"+aluno.getEstadoCivil()+"','"+email.getPrefixo()+"','"+endereco.getDescricaoLogradouro()+"','"+endereco.getNumero()+"','"+endereco.getComplementoLogradouro()+"','"+endereco.getBairro()+"','"+endereco.getCep()+"','"+endereco.getMunicipio()+"','"+numTel+"','"+aluno.getSituacaoAcademica()+"','"+doc.getNumero()+"') ";
+					+ "Email,Rua,Numero,Complemento,Bairro,CEP,Cidade,TelefoneResidencial,SituacaoAcademica,Documento,DDD,TipoLogradouro)"
+					+ "values ('"+aluno.getPreNome()+"','"+aluno.getNome()+"','"+aluno.getDataNascimento()+"','"+aluno.getMunicipioNascimento()+"','"+aluno.getUfNascimento()+"','"+aluno.getEstadoCivil()+"','"+email.getPrefixo()+"','"+endereco.getDescricaoLogradouro()+"','"+endereco.getNumero()+"','"+endereco.getComplementoLogradouro()+"','"+endereco.getBairro()+"','"+endereco.getCep()+"','"+endereco.getMunicipio()+"','"+tel.getNumero()+"','"+aluno.getSituacaoAcademica()+"','"+doc.getNumero()+"','"+tel.getDdd()+"','"+endereco.getTipoLogradouro()+"') ";
 			stmt.executeUpdate(sql);
 			
 		} 
@@ -41,10 +40,10 @@ public class Dados {
 			
 			while(rs.next()) {
 				
-				Telefone tel = new Telefone("residencial","555","",rs.getString(15),"");
+				Telefone tel = new Telefone("residencial","555",rs.getString(18),rs.getString(15),"");
 				Email email = new Email(rs.getString(8),"");
 				Documento doc = new Documento("rg",rs.getString(17),"","SSP","Brasil");
-				Endereco endereco = new Endereco("",0,rs.getString(9),rs.getString(10),rs.getString(10),"","",rs.getString(12),rs.getString(14),"Goias","Brasil","",rs.getString(13));
+				Endereco endereco = new Endereco(rs.getString(19),0,rs.getString(9),rs.getString(10),rs.getString(10),"","",rs.getString(12),rs.getString(14),"Goias","Brasil","",rs.getString(13));
 				Academicos aluno = new Academicos(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),"Brasil",rs.getString(7),tel,email,rs.getString(16),doc,endereco);
 				aluno.setMatricula(rs.getInt(1));
 				alunos.add(aluno);
@@ -64,7 +63,7 @@ public class Dados {
 		Email email = aluno.geteMail();
 		Endereco endereco = aluno.getEndereco();
 		Telefone tel = aluno.getTelefone();
-		String numTel = ""+tel.getDdd()+""+tel.getNumero();
+		//String numTel = ""+tel.getDdd()+""+tel.getNumero();
 		Documento doc = aluno.getDocumento();
 		
 		
@@ -73,7 +72,7 @@ public class Dados {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sga", "root", "");
 			Statement stmt = con.createStatement();
-			String sql = "update cadastro set Nome = '"+aluno.getPreNome()+"', Sobrenome = '"+aluno.getNome()+"', ddn = '"+aluno.getDataNascimento()+"', CidadeNascimento = '"+aluno.getMunicipioNascimento()+"', UFNascimento = '"+aluno.getUfNascimento()+"', EstadoCivil = '"+aluno.getEstadoCivil()+"',Email = '"+email.getPrefixo()+"', Rua = '"+endereco.getDescricaoLogradouro()+"', Numero = '"+endereco.getNumero()+"', Complemento = '"+endereco.getComplementoLogradouro()+"', Bairro = '"+endereco.getBairro()+"',CEP = '"+endereco.getCep()+"', Cidade = '"+endereco.getMunicipio()+"', TelefoneResidencial = '"+tel.getNumero()+"', Documento = '"+doc.getNumero()+"' where Matricula = "+aluno.getMatricula();
+			String sql = "update cadastro set Nome = '"+aluno.getPreNome()+"', Sobrenome = '"+aluno.getNome()+"', ddn = '"+aluno.getDataNascimento()+"', CidadeNascimento = '"+aluno.getMunicipioNascimento()+"', UFNascimento = '"+aluno.getUfNascimento()+"', EstadoCivil = '"+aluno.getEstadoCivil()+"',Email = '"+email.getPrefixo()+"', Rua = '"+endereco.getDescricaoLogradouro()+"', Numero = '"+endereco.getNumero()+"', Complemento = '"+endereco.getComplementoLogradouro()+"', Bairro = '"+endereco.getBairro()+"',CEP = '"+endereco.getCep()+"', Cidade = '"+endereco.getMunicipio()+"', TelefoneResidencial = '"+tel.getNumero()+"',SituacaoAcademica = '"+aluno.getSituacaoAcademica()+"' ,Documento = '"+doc.getNumero()+"', DDD = '"+tel.getDdd()+"', TipoLogradouro = '"+endereco.getTipoLogradouro()+"' where Matricula = "+aluno.getMatricula();
 			stmt.executeUpdate(sql);
 			
 			

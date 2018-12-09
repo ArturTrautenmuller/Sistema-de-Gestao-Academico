@@ -13,7 +13,7 @@ public class GUIPesquisa extends JFrame {
 	
 	public GUIPesquisa(Academicos aluno) {
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setBounds(200, 200, 530, 470);
+		setBounds(200, 200, 550, 490);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -141,9 +141,9 @@ public class GUIPesquisa extends JFrame {
 		lblEmail2.setBounds(142, 280, 123, 14);
 		contentPane.add(lblEmail2);
 		
-		JLabel lblLogradouro2 = new JLabel(aluno.getEndereco().getDescricaoLogradouro());
+		JLabel lblLogradouro2 = new JLabel(aluno.getEndereco().getTipoLogradouro()+" "+aluno.getEndereco().getDescricaoLogradouro());
 		lblLogradouro2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblLogradouro2.setBounds(394, 100, 76, 14);
+		lblLogradouro2.setBounds(394, 100, 150, 14);
 		contentPane.add(lblLogradouro2);
 		
 		JLabel lblNumero2 = new JLabel(aluno.getEndereco().getNumero());
@@ -171,7 +171,7 @@ public class GUIPesquisa extends JFrame {
 		lblCidade2.setBounds(394, 250, 76, 14);
 		contentPane.add(lblCidade2);
 		
-		JLabel lblTelRes2 = new JLabel(aluno.getTelefone().getNumero());
+		JLabel lblTelRes2 = new JLabel(aluno.getTelefone().getDdd()+" "+aluno.getTelefone().getNumero());
 		lblTelRes2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblTelRes2.setBounds(394, 280, 90, 14);
 		contentPane.add(lblTelRes2);
@@ -193,6 +193,7 @@ public class GUIPesquisa extends JFrame {
 		btnAlterarDados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new GUIAtualizar(aluno);
+				dispose();
 			}
 		});
 		contentPane.add(btnAlterarDados);

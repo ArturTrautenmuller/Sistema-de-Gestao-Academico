@@ -85,6 +85,8 @@ public class GUIAtualizar extends JFrame {
 		boxCidade.setModel(new DefaultComboBoxModel(new String[] {"Goiânia", "Aparecida de Goiânia"}));
 		boxCidade.setToolTipText("Cidades");
 		boxCidade.setBounds(412, 250, 112, 22);
+		Object c = aluno.getEndereco().getMunicipio();
+		boxCidade.setSelectedItem(c);
 		contentPane.add(boxCidade);
 		
 		JLabel lblEstado = new JLabel("Estado Civil:");
@@ -96,6 +98,8 @@ public class GUIAtualizar extends JFrame {
 		boxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"Solteiro", "Casado", "Desquitado", "Divorciado", "Viúvo", "União Estável", "Outro"}));
 		boxEstadoCivil.setToolTipText("");
 		boxEstadoCivil.setBounds(144, 250, 112, 22);
+		Object es = aluno.getEstadoCivil();
+		boxEstadoCivil.setSelectedItem(es);
 		contentPane.add(boxEstadoCivil);
 		
 		textRua = new JTextField(aluno.getEndereco().getDescricaoLogradouro());
@@ -180,6 +184,8 @@ public class GUIAtualizar extends JFrame {
 		boxTipoLogradouro.setModel(new DefaultComboBoxModel(new String[] {"Rua", "Avenida", "Alameda", "Beco", "Boulevard", "Caminho", "Cais", "Campo", "Escada", "Estrada", "Favela", "Fazenda", "Floresta", "Ilha\t", "Jardim", "Ladeira", "Largo", "Loteamento", "Lugar", "Morro", "Parque", "Passeio", "Praia", "Pra\u00E7a", "Recanto", "Rodovia", "Servidao", "Travessa", "Via", "Vila", "Outro"}));
 		boxTipoLogradouro.setToolTipText("");
 		boxTipoLogradouro.setBounds(269, 100, 90, 22);
+		Object tl = aluno.getEndereco().getTipoLogradouro();
+		boxTipoLogradouro.setSelectedItem(tl);
 		contentPane.add(boxTipoLogradouro);
 		
 		
@@ -198,7 +204,7 @@ public class GUIAtualizar extends JFrame {
 		lblUfNascimento.setBounds(10, 220, 110, 14);
 		contentPane.add(lblUfNascimento);
 		
-		textDDDResidencial = new JTextField();
+		textDDDResidencial = new JTextField(aluno.getTelefone().getDdd());
 		textDDDResidencial.setColumns(10);
 		textDDDResidencial.setBounds(412, 280, 40, 20);
 		contentPane.add(textDDDResidencial);
@@ -207,6 +213,8 @@ public class GUIAtualizar extends JFrame {
 		boxUfNascimento.setModel(new DefaultComboBoxModel(new String[] {"Acre AC", "Alagoas AL", "Amapa AP", "Amazonas AM", "Bahia BA", "Ceara CE", "Distrito Federal DF", "Espirito Santo ES", "Goias GO", "Maranhao MA", "Mato Grosso MT", "Mato Grosso do Sul MS", "Minas Gerais MG", "Para PA ", "Paraiba PB", "Parana PR", "Pernambuco PE", "Piaui PI", "Rio de Janeiro RJ", "Rio Grande do Norte RN", "Rio Grande do Sul RS", "Rondonia RO", "Roraima RR", "Santa Catarina SC", "Sao Paulo SP", "Sergipe SE", "Tocantins TO"}));
 		boxUfNascimento.setToolTipText("Cidades");
 		boxUfNascimento.setBounds(144, 220, 112, 22);
+		Object ufn = aluno.getUfNascimento();
+		boxUfNascimento.setSelectedItem(ufn);
 		contentPane.add(boxUfNascimento);
 		
 		
@@ -219,6 +227,19 @@ public class GUIAtualizar extends JFrame {
 		textDocumento.setColumns(10);
 		textDocumento.setBounds(144,311,112,20);
 		contentPane.add(textDocumento);
+		
+		JLabel lblSituacaoAcademica = new JLabel("Sit.Academica");
+		lblSituacaoAcademica.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblSituacaoAcademica.setBounds(277, 311, 123, 14);
+		contentPane.add(lblSituacaoAcademica);
+		
+		JComboBox boxSA = new JComboBox();
+		boxSA.setModel(new DefaultComboBoxModel(new String[] {"Matriculado","Suspenso"}));
+		boxSA.setToolTipText("");
+		boxSA.setBounds(412, 311, 112, 22);
+		Object sa = aluno.getSituacaoAcademica();
+		boxSA.setSelectedItem(sa);
+		contentPane.add(boxSA);
 		
 		
 		JButton btnAtualiza =  new JButton("Atualizar");
@@ -238,11 +259,12 @@ public class GUIAtualizar extends JFrame {
 					
 					Academicos aluno1 = new Academicos(textPreNome.getText(),textSobrenome.getText(),textData.getText(),
 							textCidadeNatal.getText(), boxUfNascimento.getSelectedItem().toString(),"Brasil",boxEstadoCivil.getSelectedItem().toString(),tel,email,
-							"matriculado",doc,endereco);
+							boxSA.getSelectedItem().toString(),doc,endereco);
 					aluno1.setMatricula(aluno.getMatricula());
 					
 					Dados.atualizar(aluno1);
 					JOptionPane.showMessageDialog(null, "cadastro atualizado com sucesso");
+					dispose();
 					}
 					catch(Exception e) {
 						
