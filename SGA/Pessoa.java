@@ -30,9 +30,9 @@ public class Pessoa extends JFrame{
 	private static String municipioNascimento;
 	private static String ufNascimento;
 	private static String estadoCivil;
+	private static String paisNascimento;
 	private static Telefone telefone;
 	private static Email email;
-	
 	public Pessoa(String preNome, String sobrenome, String dataNascimento, String municipioNascimento, 
 			String ufNascimento, String estadoCivil, Telefone telefone, Email email){
 		
@@ -94,9 +94,9 @@ public class Pessoa extends JFrame{
 	public void seteMail(Email eMail) {
 		this.email = eMail;
 	}
-	@Override
+
 	public String toString() {
-		return "Título: "+getPreNome()+"\nNome: "+getSobrenome()+"\nNascimento:"+getDataNascimento()+"\nMunicípio de nascimento:"+getMunicipioNascimento()+
+		return "\nTitulo: "+getPreNome()+"\nNome: "+getSobrenome()+"\nNascimento:"+getDataNascimento()+"\nMunicipio de nascimento:"+getMunicipioNascimento()+
 				"\nUF:"+getUfNascimento()+"\nEstado civil:"+getEstadoCivil()+"\nTelefone:"+
 				getTelefone()+"\nE-mail:"+getEmail();
 	}

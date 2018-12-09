@@ -5,7 +5,7 @@ import java.util.List;
 public class  UnidadesFederativas {
     private List  <ElementoDescritivo>  uf = new ArrayList<ElementoDescritivo>();
 
-    public UnidadesFederativas() {		// atribui uma descrição(completa ou abreviada) para cada estado
+    public UnidadesFederativas() {		// atribui uma descriÃ§Ã£o(completa ou abreviada) para cada estado
     	ElementoDescritivo ed;
     		
         this.uf = new ArrayList<ElementoDescritivo>();
@@ -30,7 +30,7 @@ public class  UnidadesFederativas {
         
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(4, "AP", "Amapá");
+        ed.setElementoDescritivo(4, "AP", "AmapÃ¡");
         uf.add(ed);
         
         this.uf = new ArrayList<ElementoDescritivo>();
@@ -40,7 +40,7 @@ public class  UnidadesFederativas {
         
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(6, "CE", "Ceará");
+        ed.setElementoDescritivo(6, "CE", "CearÃ¡");
         uf.add(ed);
      
         this.uf = new ArrayList<ElementoDescritivo>();
@@ -50,17 +50,17 @@ public class  UnidadesFederativas {
         
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(8, "ES", "Espírito Santo");
+        ed.setElementoDescritivo(8, "ES", "Espï¿½rito Santo");
         uf.add(ed);
         
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(9, "GO", "Goiás");
+        ed.setElementoDescritivo(9, "GO", "Goiï¿½s");
         uf.add(ed);
         
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(10, "MA", "Maranhão");
+        ed.setElementoDescritivo(10, "MA", "Maranhï¿½o");
         uf.add(ed);
        
         this.uf = new ArrayList<ElementoDescritivo>();
@@ -80,12 +80,12 @@ public class  UnidadesFederativas {
        
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(14, "PA", "Pará");
+        ed.setElementoDescritivo(14, "PA", "Parï¿½");
         uf.add(ed);
         
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(15, "PB", "Paraíba");
+        ed.setElementoDescritivo(15, "PB", "Paraï¿½ba");
         uf.add(ed);
        
         this.uf = new ArrayList<ElementoDescritivo>();
@@ -95,12 +95,12 @@ public class  UnidadesFederativas {
         
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(17, "PI", "Piauí");
+        ed.setElementoDescritivo(17, "PI", "Piauï¿½");
         uf.add(ed);
       
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(18, "PR", "Paraná");
+        ed.setElementoDescritivo(18, "PR", "Paranï¿½");
         uf.add(ed);
         
         this.uf = new ArrayList<ElementoDescritivo>();
@@ -115,7 +115,7 @@ public class  UnidadesFederativas {
         
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(21, "RO", "Rondônia");
+        ed.setElementoDescritivo(21, "RO", "Rondï¿½nia");
         uf.add(ed);
    
         this.uf = new ArrayList<ElementoDescritivo>();
@@ -140,7 +140,7 @@ public class  UnidadesFederativas {
         
         this.uf = new ArrayList<ElementoDescritivo>();
         ed = new ElementoDescritivo();
-        ed.setElementoDescritivo(27, "SP", "São Paulo");
+        ed.setElementoDescritivo(27, "SP", "Sï¿½o Paulo");
         uf.add(ed);
         
         this.uf = new ArrayList<ElementoDescritivo>();

@@ -10,7 +10,7 @@ public class Ufs {
 		
 	}
 	
-	public int estados(String siglaUf) {		// compara a sigla inserida pelo usuário, com uma das siglas inseridas na classe UnidadesFederativas.
+	public int estados(String siglaUf) {		// compara a sigla inserida pelo usuario, com uma das siglas inseridas na classe UnidadesFederativas.
 		if(siglaUf.equals(siglaUf));
 		return 0;
 	}

@@ -34,7 +34,7 @@ public class SistemaAcademico extends JFrame{
 		textoBemVindo.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(textoBemVindo);
 
-		JButton botaoNovoAcademico = new JButton("Novo Acadêmico");//Criação do botão Novo acadêmico, para criar um novo cadastro no sistema
+		JButton botaoNovoAcademico = new JButton("Novo Acadï¿½mico");//Criando do botÃ£o Novo academico, para criar um novo cadastro no sistema
 		botaoNovoAcademico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Academicos a = new Academicos();
@@ -44,10 +44,10 @@ public class SistemaAcademico extends JFrame{
 		botaoNovoAcademico.setBounds(140, 110, 160, 40);
 		contentPane.add(botaoNovoAcademico);
 
-		JButton botaoConsultarAcademico = new JButton("Consultar Acadêmico"); //Criação do botão Consultar acadêmico, pedindo o número
-		botaoConsultarAcademico.addActionListener(new ActionListener() {      //de matrícula.
+		JButton botaoConsultarAcademico = new JButton("Consultar Acadï¿½mico"); //Criando do botï¿½o Consultar acadï¿½mico, pedindo o nï¿½mero
+		botaoConsultarAcademico.addActionListener(new ActionListener() {      //de matrï¿½cula.
 			public void actionPerformed(ActionEvent arg0) {
-				matricula = JOptionPane.showInputDialog("Digite o número de matrícula do acadêmico:");
+				matricula = JOptionPane.showInputDialog("Digite o nÃºmero de matrÃ­cula do acadï¿½mico:");
 				Academicos a = new Academicos(matricula);
 				dispose();
 			}

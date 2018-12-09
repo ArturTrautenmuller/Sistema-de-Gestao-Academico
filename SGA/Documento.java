@@ -49,8 +49,8 @@ public class Documento {
 	
 	@Override
 	public String toString() {
-		return "Documento:" + tipo + ", Nº:" + numero + ", Complemento:" + complemento + ", Órgão Expedidor:"
-				+ orgaoExpedidor + ", País:" + pais + ".";
+		return "Documento:" + tipo + ", Nï¿½:" + numero + ", Complemento:" + complemento + ", OrgÃ£o Expedidor:"
+				+ orgaoExpedidor + ", Paï¿½s:" + pais + ".";
 	}
 	
 	
